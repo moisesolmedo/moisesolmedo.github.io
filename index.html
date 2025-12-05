@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNIR - Herramientas de Visualización</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar bg-light shadow">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://static.unir.net/mediateca/Unir_L_verticalnegro.png"
+              alt="Bootstrap"
+              width="30"
+              height="24"
+            />
+            &nbsp; &nbsp; <strong>Puerto de Veracruz :: Histórico de Buques</strong>
+          </a>
+          Herramientas de Visualización
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabladatos-tab" data-bs-toggle="tab" data-bs-target="#tabladatos-tab-pane" type="button" role="tab" aria-controls="tabladatos-tab-pane" aria-selected="false" >Datos</button>
+        </li>
+        
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="dimensionestab" data-bs-toggle="tab" data-bs-target="#dimensionestab-pane" type="button" role="tab" aria-controls="dimensionestab-pane" aria-selected="false">Scatterplot Calado y Eslora</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="histograma-tab" data-bs-toggle="tab" data-bs-target="#histograma-tab-pane" type="button" role="tab" aria-controls="histograma-tab-pane" aria-selected="false">Buques trabajados por Maniobrista</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div class="col-lg-8 mx-auto p-4 py-md-5">
+              <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+               
+              <span class="fs-5"> UNIR -  
+              <small class="float-right">MAESTRÍA EN ANÁLISIS Y VISUALIZACIÓN DE DATOS</small></span>
+                </a>
+              </header>
+            
+              <main>
+                <h1>Actividad grupal: Análisis tendencias en D3.js</h1>
+                <p class="fs-5 ">Crear una visualización interactiva en D3.js que permita 
+                  analizar  tendencias  presentes  en una fuente de datos pública.</p>
+                <h2>Contexto de los datos y análisis</h2>
+                  <p>Una empresa maniobrista del puerto de Veracruz desea identificar los buques trabajados por las distintas maniobristas en los últimos 3 meses, comparar la cantidad y tamaño (eslora y calado) y obtener las tenencias presentes en los datos. 
+                    Para ello analizará los datos abiertos de la Administración del Sistema Portuario Nacional (ASIPONA Veracruz).</p>
+                
+                <h3>Instrucciones</h3>
+                <p>Ulice las pestañas de la parte superior para ver <strong>Datos</strong>, gráfica <strong>Scatterplot Calado y Eslora</strong> y gráfica <strong>Buques trabajados por maniobristas</strong></p>
+                <hr class="col-3 col-md-2 mb-5">
+                <div class="row g-5">
+                  <div class="col-md-6">
+                    <h2>Fuente de datos</h2>
+                    <p><strong>Histórico de Buques que atracaron en el Puerto</strong>: Relación de buques con tres meses de antigüedad, de los buques que realizaron
+                      operaciones o servicios en el Puerto de Veracruz. 
+                       </p>
+                    <ul class="icon-list ps-0">
+                      <li class="d-flex align-items-start mb-1">Fuente: Administración del Sistema Portuario Nacional Veracruz.</li>
+                      <li class="d-flex align-items-start mb-1">WebService: <a href="http://www.puertodeveracruz.com.mx/ws/BuquesHistoricos" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></li>
+                      <li class="d-flex align-items-start mb-1">Diccionario de datos (página 4):  
+                        <a href="https://www.puertodeveracruz.com.mx/archivos/DatosAbiertos/DiccionarioGeneral.pdf" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h2>Integrantes</h2>
+                    <ul class="icon-list ps-0">
+                      <li class="d-flex align-items-start mb-1">David Díaz De la Cruz</li>
+                      <li class="d-flex align-items-start mb-1">Diego Armando Domínguez González</li>
+                      <li class="d-flex align-items-start mb-1">Yozuki Desiree Johnson Arias
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <h2>Github</h2>
+                    
+                    <ul class="icon-list ps-0">
+                      <li class="d-flex align-items-start mb-1">GITHUB <a href="https://github.com/davidhsc/UNIR-HV-2023Q3-EQ15-TAREA1" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></li>
+                      <li class="d-flex align-items-start mb-1">Página web  
+                        <a href="https://davidhsc.github.io/UNIR-HV-2023Q3-EQ15-TAREA1/" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </main>
+              
+            </div>
+        </div>
+        
+        <div class="tab-pane fade" id="histograma-tab-pane" role="tabpanel" aria-labelledby="histograma-tab" tabindex="0">
+
+          <p>Buques trabajados por maniobrista</p>
+          <div class="row">
+            <div class="col-10">
+              <div id="histo">
+              </div>
+            </div>
+            <div class="col-2">
+              <table  class="table table-sm table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">MANIOBRISTA</th>
+                    <th scope="col">COUNT BUQUES</th>
+                    
+                  </tr>
+                </thead>
+                <tbody id="renglonesdatosbuquexmaniobrista">
+                  
+                </tbody>
+              </table> 
+            </div>
+          </div>
+          
+
+        </div>
+        <div class="tab-pane fade" id="dimensionestab-pane" role="tabpanel" aria-labelledby="dimensionestab" tabindex="0">
+          
+          <p class="h-100">Interacciones disponibles</p>
+          <ul>
+            <li>Mueva el cursor encima de un buque para visualizar su ficha de datos.</li>
+            <li>Utilice el botón <i class="fa-solid fa-eye green"></i> de cada maniobrista para mostrar/ocultar sus buques trabajados</li>  
+          </ul>
+          <div class="row">
+            <div class="col-10">
+              <div id="graf" style="position:relative">
+                <div id="tooltip" class="p-2 bg-secondary rounded-2 shadow-sm text-white small" style="position:absolute; left:25px; top:25px; display: none;">
+                  Buque: <strong><spam id="tooltipnombrebuque"> </spam></strong><br>
+                  Naviera: <strong><spam id="tooltipnaviera"> </spam></strong><br>
+                  Maniobrista: <strong><spam id="tooltipmaniobrista"> </spam></strong><br>
+                  Eslora: <strong><spam id="tooltipeslora"> </spam></strong><br>
+                  Calado: <strong><spam id="tooltipcalado"></spam></strong><br>
+                </div>
+              </div>  
+            </div>
+            <div class="col-2">
+              <div>
+                <table  class="table table-sm table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">ICON</th>
+                      <th scope="col">MANIOBRISTA <i id="botonToogleAllBuquesVisibles" class="btneye fa-solid fa-eye green" onclick="toogleAllBuquesVisibles()"></i></th>
+                    </tr>
+                  </thead>
+                    <tbody >
+                      
+                      <tr><td><i class="fa-solid fa-ship car"></i></td><td class="dato">CARGILL</td><td><i id="boton-car" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-car','car')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship cic"></i></td><td class="dato">CICE</td><td><i id="boton-cic" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-cic','cic')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship cpv"></i></td><td class="dato">CPV</td><td><i id="boton-cpv" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-cpv','cpv')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship esj"></i></td><td class="dato">ESJ</td><td><i id="boton-esj" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-esj','esj')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship exc"></i></td><td class="dato">EXCELLENCE</td><td><i id="boton-exc" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-exc','exc')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship ica"></i></td><td class="dato">ICAVE</td><td><i id="boton-ica" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-ica','ica')"></i></td></tr>             
+                      <tr><td><i class="fa-solid fa-ship ope"></i></td><td class="dato">OPEVER</td><td><i id="boton-ope" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-ope','ope')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship pem"></i></td><td class="dato">PEMX</td><td><i id="boton-pem" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-pem','pem')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship pet"></i></td><td class="dato">PETRA</td><td><i id="boton-pet" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-pet','pet')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship sep"></i></td><td class="dato">SEPSA</td><td><i id="boton-sep" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-sep','sep')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship sip"></i></td><td class="dato">SIPPB</td><td><i id="boton-sip" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-sip','sip')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship ssa"></i></td><td class="dato">SSA</td><td><i id="boton-ssa" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-ssa','ssa')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship tce"></i></td><td class="dato">TCE</td><td><i id="boton-tce" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-tce','tce')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship tmv"></i></td><td class="dato">TMV</td><td><i id="boton-tmv" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-tmv','tmv')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship tng"></i></td><td class="dato">TNG</td><td><i id="boton-tng" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-tng','tng')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship tra"></i></td><td class="dato">TRA</td><td><i id="boton-tra" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-tra','tra')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship vop"></i></td><td class="dato">VOPAK</td><td><i id="boton-vop" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-vop','vop')"></i></td></tr>
+                      <tr><td><i class="fa-solid fa-ship otr"></i></td><td class="dato">OTROS</td><td><i id="boton-otr" class="btneye fa-solid fa-eye green" onclick="toogleBuquesVisibles('boton-otr','otr')"></i></td></tr>
+                     
+                      
+                  </tbody>
+                </table>
+                </div> 
+            </div>
+          </div>
+
+          
+          
+        </div>
+        <div class="tab-pane fade" id="tabladatos-tab-pane" role="tabpanel" aria-labelledby="tabladatos-tab" tabindex="0">
+          <p>
+            Fuente: Administración del Sistema Portuario Nacional Veracruz. 
+            &nbsp; &nbsp;JSON: <a href="http://www.puertodeveracruz.com.mx/ws/BuquesHistoricos" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+            &nbsp; &nbsp; Diccionario de datos:  
+            <a href="https://www.puertodeveracruz.com.mx/archivos/DatosAbiertos/DiccionarioGeneral.pdf" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a> </p>
+          <table  class="table table-sm table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ICON</th>
+                <th scope="col">VID</th>
+                <th scope="col">NOMBRE DEL BUQUE</th>
+                <th scope="col">NAVIERA</th>
+                <th scope="col">ESLORA (M)</th>
+                <th scope="col">CALADO (M)</th>
+                <th scope="col">MANIOBRISTA</th>
+                <th scope="col">MUELLE DE ATRAQUE</th>
+                
+              </tr>
+            </thead>
+            <tbody id="renglonesdatos">
+              
+            </tbody>
+          </table> 
+        </div>
+      </div>
+
+      
+      
+    </div>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"
+    integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"
+  ></script>
+    <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
+  </body>
+</html>
